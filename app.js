@@ -8,7 +8,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/user');
+var stock = require('./routes/stock');
+var crawl=require('./routes/crawl');
 
 var app = express();
 
@@ -26,8 +27,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', routes.index);
-app.get('/users', users.list);
-
+app.get('/stockadd', stock.add);
+crawl.queryStock();
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');

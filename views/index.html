@@ -4,7 +4,18 @@
      <script src="/javascripts/jquery-1.9.1.min.js"></script>
      <script>
 
+       function addStock(o){
+         $.getJSON('/stockadd?code='+ o.SYMBOL+'&name='+ o.NAME,function(r){
+           console.dir(r);
+         });
+       }
+
        $.getJSON('/jsondata/gu.json',function(d){
+         for(var i=0;i< d.list.length;i++){
+           var item= d.list[i];
+          // console.dir(item);
+           addStock(item);
+         }
          console.dir(d);
        });
 
