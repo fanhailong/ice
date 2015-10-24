@@ -3,7 +3,8 @@
  */
 var stock = {
     insert:'insert into stock(code,name) values(?,?)',
-    queryAll: 'select code,name from stock'
+    queryAll: 'select code,name from stock limit ?,?',
+    updateById:'update stock set st=? where code=?'
 };
 
 module.exports = stock;

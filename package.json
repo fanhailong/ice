@@ -16,6 +16,8 @@
     "mysql":"latest",
     "request":"latest",
     "cheerio":"latest",
+    "iconv-lite":"latest",
+    "node-schedule":"latest",
     "ejs":"*"
   }
 }

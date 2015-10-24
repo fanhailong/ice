@@ -44,5 +44,32 @@ module.exports = {
                 connection.release();
             });
         });
+    },
+    queryStocks:function(start,row,refreshStock){
+
+        pool.getConnection(function(err, connection) {
+            // 建立连接，向表中插入值
+            // 'INSERT INTO user(id, name, age) VALUES(0,?,?)',
+            connection.query($sql.queryAll, [start,row], function(err, result) {
+
+                refreshStock(result);
+                // 释放连接
+                connection.release();
+
+            });
+        });
+
+    },
+    updateById:function(st,code){
+        pool.getConnection(function(err, connection) {
+            // 建立连接，向表中插入值
+            // 'INSERT INTO user(id, name, age) VALUES(0,?,?)',
+            connection.query($sql.updateById, [st,code], function(err, result) {
+                console.dir(result);
+                // 释放连接
+                connection.release();
+
+            });
+        });
     }
 };
