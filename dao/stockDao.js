@@ -71,5 +71,22 @@ module.exports = {
 
             });
         });
+    },
+
+    add:function(params){
+        pool.getConnection(function(err, connection) {
+            // 建立连接，向表中插入值
+            // 'INSERT INTO user(id, name, age) VALUES(0,?,?)',
+            connection.query($sql.insertTrack, params, function(err, result) {
+                if(err){
+                    console.log(err);
+                    console.log(params);
+                }
+
+                // 释放连接
+                connection.release();
+
+            });
+        });
     }
 };
