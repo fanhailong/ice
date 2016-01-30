@@ -18,6 +18,7 @@
     "cheerio":"latest",
     "iconv-lite":"latest",
     "node-schedule":"latest",
-    "ejs":"*"
+    "ejs":"*",
+    "jpush-sdk":"*"
   }
 }
